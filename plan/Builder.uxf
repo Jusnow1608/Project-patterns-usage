@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>261</y>
+      <w>333</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>DefaultProcessBuilder                           
+--
+- name : String                                
+- steps : List&lt;ProcessStep&gt;                    
+- onFinish : Runnable 
+--
++ setName(...) : ProcessBuilder                
++ addStep(...) : ProcessBuilder                
++ onFinish(...) : ProcessBuilder               
++ build() : BusinessProcess    </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>873</x>
+      <y>261</y>
+      <w>243</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>BusinessProcess                          
+--
+- name : String                                
+- steps : List&lt;ProcessStep&gt;                    
+- onFinish : Runnable
+--
++ start() : void                               
++ finish() : void                              
++ getSteps() : List&lt;ProcessStep&gt; </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>117</x>
+      <y>495</y>
+      <w>261</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>UserContext             
+--
+- data : Map&lt;String, Object&gt;
+--
++ hasFilled(field : String) : boolean          
++ hasBudget() : boolean                       
++ hasResults() : boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>468</x>
+      <y>72</y>
+      <w>288</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ProcessBuilder
+--
++ setName(name : String) : ProcessBuilder      
++ addStep(step : ProcessStep) : ProcessBuilder 
++ onFinish(action : Runnable) : ProcessBuilder 
++ build() : BusinessProcess   </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>468</x>
+      <y>495</y>
+      <w>279</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>ProcessStep        
+-
+- id : String                                  
+- title : String                               
+- action : Runnable                            
+- validation : Predicate&lt;UserContext&gt; 
+--
++ execute() : void                             
++ isValid(ctx : UserContext) : boolean   </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>603</x>
+      <y>189</y>
+      <w>27</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>594</x>
+      <y>405</y>
+      <w>27</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>738</x>
+      <y>378</y>
+      <w>279</w>
+      <h>207</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>290.0;10.0;290.0;210.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>369</x>
+      <y>549</y>
+      <w>117</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>765</x>
+      <y>315</y>
+      <w>126</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
