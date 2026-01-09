@@ -1,19 +1,18 @@
 package factory;
 
+import factory.marketplace_service.MarketplaceService;
+import factory.marketplace_service.MarketplaceServiceFactory;
+
 public class Main {
     public static void main(String[] args) {
 
         String choice = "LEGAL";
+        //String choice = "ACCOUNTING";
+        System.out.println("=============== RESULTS =============");
+        MarketplaceService service = MarketplaceServiceFactory.createService(choice);
 
-        if (choice.equals("ACCOUNTING")) {
-            AccountingService s = new AccountingService();
-            s.startTaxConnection();
-        } else if (choice.equals("LEGAL")) {
-            LegalService s = new LegalService();
-            s.assignLawyer();
-        } else if (choice.equals("MARKETING")) {
-            MarketingService s = new MarketingService();
-            s.setupAds();
+        if (service != null) {
+            service.execute();
         }
     }
 }
