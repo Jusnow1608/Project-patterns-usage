@@ -30,7 +30,3 @@ bin/
 .DS_Store
 
 .uxf
-
-*.txt text
-*.sh text eol=lf
-*.bat text eol=crlf
