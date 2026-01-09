@@ -1,5 +1,10 @@
 package strategy;
 
+import strategy.calculator.ProfitabilityCalculator;
+import strategy.tax_strategy.FlatTaxStrategy;
+import strategy.tax_strategy.LumpSumStrategy;
+import strategy.tax_strategy.ProgressiveTaxStrategy;
+
 public class Main {
     public static void main(String[] args) {
         ProfitabilityCalculator calculator = new ProfitabilityCalculator();
@@ -11,12 +16,15 @@ public class Main {
         System.out.println("=== STARTING PROFITABILITY CHECK ===");
 
         // Simulating user choosing Progressive Tax
-        calculator.calculateAndDisplay(monthlyRevenue, monthlyCosts, "PROGRESSIVE");
+        calculator.setStrategy(new ProgressiveTaxStrategy());
+        calculator.runCalculation(monthlyRevenue, monthlyCosts);
 
         // Simulating user switching to Lump Sum to compare results
-        calculator.calculateAndDisplay(monthlyRevenue, monthlyCosts, "LUMP_SUM");
+        calculator.setStrategy(new LumpSumStrategy());
+        calculator.runCalculation(monthlyRevenue, monthlyCosts);
 
         // Simulating user switching to Flat Tax
-        calculator.calculateAndDisplay(monthlyRevenue, monthlyCosts, "FLAT_TAX");
+        calculator.setStrategy(new FlatTaxStrategy());
+        calculator.runCalculation(monthlyRevenue, monthlyCosts);
     }
 }
