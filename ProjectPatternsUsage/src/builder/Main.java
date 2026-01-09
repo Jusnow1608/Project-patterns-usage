@@ -1,29 +1,20 @@
 package builder;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import builder.business_plan.*;
+
 public class Main {
     public static void main(String[] args) {
 
-        //BusinessPlan plan = new BusinessPlan("FREELANCER", true, false);
-        BusinessPlan plan = new BusinessPlan("SHOP", false, true);
+        // Test 1: Freelancer (Nierejestrowana)
+        BusinessPlanDirector freelancerDirector = new BusinessPlanDirector(new FreelancerAssistantBuilder());
+        BusinessPlan plan1 = freelancerDirector.construct(true, false);
+        plan1.display();
 
-        System.out.println("PLAN FOR: " + plan.getPersona());
+        System.out.println();
 
-        if (plan.getPersona().equals("FREELANCER")) {
-            System.out.println("- [TASK] Create Portfolio");
-        } else if (plan.getPersona().equals("SHOP")) {
-            System.out.println("- [TASK] Select E-commerce Platform");
-        }
-
-        if (plan.isUnregistered()) {
-            System.out.println("- [TASK] Monitor Revenue Limit (Unregistered Activity)");
-        } else {
-            System.out.println("- [TASK] Register in CEIDG");
-        }
-
-        if (plan.isVatActive()) {
-            System.out.println("- [TASK] VAT-R Registration");
-        }
+        // Test 2: Sklep (Pełna działalność + VAT)
+        BusinessPlanDirector shopDirector = new BusinessPlanDirector(new ShopAssistantBuilder());
+        BusinessPlan plan2 = shopDirector.construct(false, true);
+        plan2.display();
     }
 }
