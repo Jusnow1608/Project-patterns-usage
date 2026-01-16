@@ -6,7 +6,7 @@ public class ProfitabilityCalculator {
 
     private TaxStrategy strategy;
 
-// Allows switching tax regimes at runtime (What-if analysis)
+        // Allows switching tax regimes at runtime (What-if analysis)
         public void setStrategy (TaxStrategy strategy){
             this.strategy = strategy;
         }

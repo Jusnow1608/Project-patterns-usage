@@ -9,22 +9,18 @@ public class Main {
     public static void main(String[] args) {
         ProfitabilityCalculator calculator = new ProfitabilityCalculator();
 
-        // Sample data
-        double monthlyRevenue = 15000.0;
-        double monthlyCosts = 2500.0;
-
-        System.out.println("=== STARTING PROFITABILITY CHECK ===");
+        System.out.println("--- STARTING PROFITABILITY CHECK ---");
 
         // Simulating user choosing Progressive Tax
         calculator.setStrategy(new ProgressiveTaxStrategy());
-        calculator.runCalculation(monthlyRevenue, monthlyCosts);
+        calculator.runCalculation(1500, 2500);
 
         // Simulating user switching to Lump Sum to compare results
         calculator.setStrategy(new LumpSumStrategy());
-        calculator.runCalculation(monthlyRevenue, monthlyCosts);
+        calculator.runCalculation(1500, 2500);
 
         // Simulating user switching to Flat Tax
         calculator.setStrategy(new FlatTaxStrategy());
-        calculator.runCalculation(monthlyRevenue, monthlyCosts);
+        calculator.runCalculation(1500, 2500);
     }
 }
