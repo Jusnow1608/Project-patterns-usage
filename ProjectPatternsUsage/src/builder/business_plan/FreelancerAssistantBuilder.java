@@ -2,37 +2,37 @@ package builder.business_plan;
 
 public class FreelancerAssistantBuilder implements BusinessPlanBuilder{
 
-    private BusinessPlan plan;
+    private BusinessPlan businessPlan;
 
     @Override
     public void reset() {
-        plan = new BusinessPlan();
-        plan.setPersona("FREELANCER");
+        businessPlan = new BusinessPlan();
+        businessPlan.setBusinessType(BusinessType.FREELANCER);
     }
 
     @Override
     public void setBaseTasks() {
-            plan.addTask(new Task("Create Portfolio"));
+        businessPlan.addTask(new Task("Create Portfolio"));
     }
 
     @Override
     public void addLegalSteps(boolean isUnregistered) {
             if (isUnregistered) {
-                plan.addTask(new Task("Monitor Revenue Limit"));
+                businessPlan.addTask(new Task("Monitor Revenue Limit"));
             } else {
-                plan.addTask(new Task("Register in CEIDG"));
+                businessPlan.addTask(new Task("Register in CEIDG"));
             }
     }
 
     @Override
     public void addTaxSteps(boolean isVatActive) {
             if (isVatActive) {
-                plan.addTask(new Task("VAT-R Registration"));
+                businessPlan.addTask(new Task("VAT-R Registration"));
             }
     }
 
     @Override
     public BusinessPlan getResult() {
-        return plan;
+        return businessPlan;
     }
 }

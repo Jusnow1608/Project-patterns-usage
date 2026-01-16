@@ -6,15 +6,21 @@ public class Main {
     public static void main(String[] args) {
 
         // Test 1: Freelancer (Nierejestrowana)
-        BusinessPlanDirector freelancerDirector = new BusinessPlanDirector(new FreelancerAssistantBuilder());
-        BusinessPlan plan1 = freelancerDirector.construct(true, false);
-        plan1.display();
+        BusinessPlanBuilder freelancerBusinessPlanBuilder = new FreelancerAssistantBuilder();
+        BusinessPlanDirector freelancerBusinessPlanDirector = new BusinessPlanDirector(freelancerBusinessPlanBuilder);
+
+        BusinessPlan freelancerBusinessPlan = freelancerBusinessPlanDirector.buildBusinessPlan(true, false);
+
+        freelancerBusinessPlan.displayTasks();
 
         System.out.println();
 
         // Test 2: Sklep (Pełna działalność + VAT)
-        BusinessPlanDirector shopDirector = new BusinessPlanDirector(new ShopAssistantBuilder());
-        BusinessPlan plan2 = shopDirector.construct(false, true);
-        plan2.display();
+        BusinessPlanBuilder shopBusinessPlanBuilder = new ShopAssistantBuilder();
+        BusinessPlanDirector shopBusinessPlanDirector = new BusinessPlanDirector(shopBusinessPlanBuilder);
+
+        BusinessPlan shopBusinessPlan = shopBusinessPlanDirector.buildBusinessPlan(false, true);
+
+        shopBusinessPlan.displayTasks();
     }
 }

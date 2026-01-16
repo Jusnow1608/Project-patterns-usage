@@ -2,17 +2,18 @@ package builder.business_plan;
 
 public class BusinessPlanDirector {
 
-    private final BusinessPlanBuilder builder;
+    private final BusinessPlanBuilder businessPlanBuilder;
 
-    public BusinessPlanDirector(BusinessPlanBuilder builder) {
-        this.builder = builder;
+    public BusinessPlanDirector(BusinessPlanBuilder businessPlanBuilder) {
+
+        this.businessPlanBuilder = businessPlanBuilder;
     }
 
-    public BusinessPlan construct(boolean isUnregistered, boolean isVat) {
-        builder.reset();
-        builder.setBaseTasks();
-        builder.addLegalSteps(isUnregistered);
-        builder.addTaxSteps(isVat);
-        return builder.getResult();
+    public  BusinessPlan buildBusinessPlan(boolean isUnregistered, boolean isVat) {
+        businessPlanBuilder.reset();
+        businessPlanBuilder.setBaseTasks();
+        businessPlanBuilder.addLegalSteps(isUnregistered);
+        businessPlanBuilder.addTaxSteps(isVat);
+        return businessPlanBuilder.getResult();
     }
 }

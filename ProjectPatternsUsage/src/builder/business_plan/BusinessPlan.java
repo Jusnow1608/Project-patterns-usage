@@ -4,27 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BusinessPlan {
-    private String persona;
+    private BusinessType type;
     private final List<Task> tasks = new ArrayList<>();
-
-    public BusinessPlan() {
-    }
+    // Konstruktor domyślny - widoczny tylko w tym pakiecie!
+    BusinessPlan() {}
 
     public void addTask(Task task) {
+
         this.tasks.add(task);
     }
 
-    public void display() {
-        System.out.println("=== ASSISTANT STEP BY STEP: " + persona + " ===");
+    public void displayTasks() {
+        System.out.println("=== ASSISTANT STEP BY STEP: " + type + " ===");
         tasks.forEach(System.out::println);
     }
 
-        public String getPersona() {
-        return persona;
-    }
-
-    public void setPersona(String persona) {
-        this.persona = persona;
+    public void setBusinessType(BusinessType type) {
+        this.type = type;
     }
 
 }
